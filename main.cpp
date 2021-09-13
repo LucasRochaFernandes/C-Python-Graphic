@@ -15,15 +15,12 @@ float y[201];
 void learquivo();
 int trocavirgula();
 float funcao();
-void remove_linha();
 
 int main()
 {
     learquivo();
     trocavirgula();
     funcao();
-    remove_linha();
-
     return 0;
 }
 
@@ -103,24 +100,3 @@ float funcao()
     }
     return 0;
 }
-
-void remove_linha()
-{
-    char ch;
-    int line = 1;
-    fstream fs("dados_Res.txt", fstream::in);
-    fstream fs2("arq03_new.txt", fstream::out);
-    while (fs.get(ch))
-    {
-        if (ch == '\n')
-            line++;
-
-        if (line != 202)
-            fs2 << ch;
-    }
-    fs.close();
-    fs2.close();
-}
-
-// result = pow(num, 2) + pow(num2, 2) - cos(18 * num) - cos(18 * num2);
-// fs2 << result << "\n";
